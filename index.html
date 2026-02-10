@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UoBalance – Student Well-being</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6fa;
+      color: #1a1a1a;
+    }
+
+    header {
+      background: #003865;
+      color: white;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 60px 40px;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero h1 span {
+      color: #005eb8;
+    }
+
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 260px;
+    }
+
+    .energy-bar {
+      background: #eee;
+      height: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .energy-fill {
+      height: 100%;
+      width: 70%;
+      background: #005eb8;
+    }
+
+    .section {
+      padding: 60px 40px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    footer {
+      background: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85rem;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <strong>UoBalance</strong>
+  <nav>
+    <a href="#simulator">Simulator</a>
+    <a href="#impact">Impact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Balance your <span>sleep</span>, <span>nutrition</span> & <span>energy</span></h1>
+    <p>A simple web app to help students improve their daily well-being.</p>
+  </div>
+
+  <div class="card">
+    <strong>Energy level</strong>
+    <div class="energy-bar">
+      <div class="energy-fill" id="energyFill"></div>
+    </div>
+    <p id="energyText">Energy: 70%</p>
+  </div>
+</section>
+
+<section id="simulator" class="section">
+  <h2>Energy simulator</h2>
+
+  <p>Sleep hours: <span id="sleepValue">7</span>h</p>
+  <input type="range" min="4" max="10" value="7" id="sleep">
+
+  <p>Water intake: <span id="waterValue">4</span> glasses</p>
+  <input type="range" min="1" max="8" value="4" id="water">
+</section>
+
+<section id="impact" class="section">
+  <h2>Social impact</h2>
+  <p>This project supports:</p>
+  <ul>
+    <li>SDG 3 – Good Health and Well-being</li>
+    <li>SDG 4 – Quality Education</li>
+  </ul>
+</section>
+
+<footer>
+  © 2026 – UoBalance | Student project
+</footer>
+
+<script>
+  const sleep = document.getElementById("sleep");
+  const water = document.getElementById("water");
+  const energyFill = document.getElementById("energyFill");
+  const energyText = document.getElementById("energyText");
+  const sleepValue = document.getElementById("sleepValue");
+  const waterValue = document.getElementById("waterValue");
+
+  function updateEnergy() {
+    sleepValue.textContent = sleep.value;
+    waterValue.textContent = water.value;
+
+    let energy = Math.min(100, sleep.value * 8 + water.value * 6);
+    energyFill.style.width = energy + "%";
+    energyText.textContent = "Energy: " + energy + "%";
+  }
+
+  sleep.addEventListener("input", updateEnergy);
+  water.addEventListener("input", updateEnergy);
+</script>
+
+</body>
+</html>
