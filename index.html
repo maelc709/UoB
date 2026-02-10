@@ -1,1 +1,200 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <title>UoBalance – Student Well‑Being at University of Birmingham</title> <meta name="viewport" content="width=device-width, initial-scale=1" /> <style> :root { --uob-blue: #002855; --wellness-green: #3bb273; --energy-orange: #ff8a3d; --bg-light: #f5f7fb; --text-dark: #1f2933; --text-muted: #6b7280; --card-bg: #ffffff; --radius-lg: 18px; --radius-md: 12px; --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12); --transition-fast: 0.2s ease-out; } * { box-sizing: border-box; margin: 0; padding: 0; } body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif; background: radial-gradient(circle at top left, #e0f2fe 0, #f5f7fb 40%, #eef2ff 100%); color: var(--text-dark); line-height: 1.6; } a { text-decoration: none; color: inherit; } img { max-width: 100%; display: block; } .page { max-width: 1120px; margin: 0 auto; padding: 24px 16px 64px; } header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; } .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--uob-blue); } .logo-mark { width: 32px; height: 32px; border-radius: 12px; background: conic-gradient(from 180deg, var(--uob-blue), var(--wellness-green), var(--energy-orange), var(--uob-blue)); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 16px; } nav { display: flex; gap: 18px; font-size: 14px; color: var(--text-muted); } nav a { padding: 6px 10px; border-radius: 999px; transition: background var(--transition-fast), color var(--transition-fast); } nav a:hover { background: rgba(255, 255, 255, 0.8); color: var(--uob-blue); } .hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; align-items: center; margin-bottom: 56px; } @media (max-width: 840px) { .hero { grid-template-columns: 1fr; } header { flex-direction: column; align-items: flex-start; gap: 12px; } } .hero-kicker { font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--wellness-green); font-weight: 600; margin-bottom: 10px; } .hero-title { font-size: clamp(30px, 4vw, 40px); font-weight: 800; color: var(--uob-blue); line-height: 1.1; margin-bottom: 14px; } .hero-highlight { background: linear-gradient(120deg, var(--wellness-green), var(--energy-orange)); -webkit-background-clip: text; color: transparent; } .hero-subtitle { font-size: 15px; color: var(--text-muted); max-width: 420px; margin-bottom: 18px; } .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; } .badge { font-size: 11px; padding: 4px 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.9); border: 1px solid rgba(148, 163, 184, 0.4); display: inline-flex; align-items: center; gap: 6px; } .badge-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--wellness-green); } .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; } .btn-primary { border: none; cursor: pointer; padding: 10px 18px; border-radius: 999px; background: linear-gradient(135deg, var(--uob-blue), #004b8d); color: #fff; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 14px 30px rgba(15, 23, 42, 0.35); transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast); } .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 18px 40px rgba(15, 23, 42, 0.45); background: linear-gradient(135deg, #004b8d, var(--uob-blue)); } .btn-ghost { border-radius: 999px; padding: 9px 16px; font-size: 14px; border: 1px solid rgba(148, 163, 184, 0.7); background: rgba(255, 255, 255, 0.7); display: inline-flex; align-items: center; gap: 8px; cursor: pointer; transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast); } .btn-ghost:hover { background: #ffffff; border-color: var(--uob-blue); transform: translateY(-1px); } .hero-meta { font-size: 12px; color: var(--text-muted); } .hero-meta strong { color: var(--uob-blue); } .hero-visual { position: relative; padding: 18px; border-radius: 26px; background: radial-gradient(circle at top, rgba(59, 178, 115, 0.18), rgba(0, 40, 85, 0.9)); color: #e5f4ff; box-shadow: var(--shadow-soft); overflow: hidden; } .hero-visual::before { content: ""; position: absolute; inset: -40%; background: radial-gradient(circle at 10% 0, rgba(255, 255, 255, 0.12) 0, transparent 55%), radial-gradient(circle at 90% 100%, rgba(255, 255, 255, 0.1) 0, transparent 55%); opacity: 0.8; pointer-events: none; } .hero-visual-inner { position: relative; z-index: 1; } .hero-visual-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-size: 12px; } .pill { padding: 4px 10px; border-radius: 999px; background: rgba(15, 23, 42, 0.55); display: inline-flex; align-items: center; gap: 6px; } .pill-dot { width: 7px; height: 7px; border-radius: 999px; background: var(--wellness-green); } .hero-visual-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 12px; align-items: stretch; } @media (max-width: 480px) { .hero-visual-grid { grid-template-columns: 1fr; } } .card { background: rgba(15, 23, 42, 0.72); border-radius: 18px; padding: 12px 12px 14px; border: 1px solid rgba(148, 163, 184, 0.4); backdrop-filter: blur(12px); } .card-title { font-size: 12px; font-weight: 600; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between; } .chip { font-size: 10px; padding: 2px 8px; border-radius: 999px; background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(148, 163, 184, 0.6); } .routine-list { list-style: none; font-size: 11px; display: grid; gap: 4px; margin-top: 4px; } .routine-item { display: flex; justify-content: space-between; align-items: center; padding: 4px 6px; border-radius: 10px; background: rgba(15, 23, 42, 0.7); } .routine-item span:first-child { opacity: 0.9; } .routine-tag { font-size: 10px; padding: 2px 6px; border-radius: 999px; background: rgba(59, 178, 115, 0.18); color: #bbf7d0; } .energy-meter { margin-top: 6px; font-size: 11px; } .energy-bar { margin-top: 4px; height: 7px; border-radius: 999px; background: rgba(15, 23, 42, 0.7); overflow: hidden; } .energy-fill { height: 100%; width: 60%; border-radius: 999px; background: linear-gradient(90deg, var(--energy-orange), #facc15); transition: width 0.25s ease-out; } .hero-visual-side { display: grid; gap: 10px; font-size: 11px; } .stat-card { border-radius: 14px; padding: 8px 10px; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(148, 163, 184, 0.5); display: flex; justify-content: space-between; align-items: center; } .stat-label { opacity: 0.85; } .stat-value { font-weight: 600; color: #e5f4ff; } .tagline { font-size: 11px; opacity: 0.85; margin-top: 4px; } .section { margin-bottom: 52px; } .section-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 18px; } .section-title { font-size: 20px; font-weight: 700; color: var(--uob-blue); } .section-subtitle { font-size: 13px; color: var(--text-muted); max-width: 420px; } .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; } @media (max-width: 840px) { .steps { grid-template-columns: 1fr; } } .step-card { background: var(--card-bg); border-radius: var(--radius-lg); padding: 16px 16px 18px; box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08); border: 1px solid rgba(148, 163, 184, 0.35); position: relative; overflow: hidden; transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast); } .step-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(15, 23, 42, 0.16); border-color: rgba(37, 99, 235, 0.6); } .step-index { font-size: 11px; font-weight: 600; color: var(--wellness-green); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.12em; } .step-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--uob-blue); } .step-text { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; } .step-meta { font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; } .step-icon { width: 22px; height: 22px; border-radius: 999px; background: rgba(59, 178, 115, 0.12); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; } .simulator { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 20px; align-items: stretch; } @media (max-width: 840px) { .simulator { grid-template-columns: 1fr; } } .simulator-panel { background: var(--card-bg); border-radius: var(--radius-lg); padding: 16px 16px 18px; box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08); border: 1px solid rgba(148, 163, 184, 0.35); } .field { margin-bottom: 14px; } .field-label { font-size: 13px; font-weight: 500; margin-bottom: 4px; display: flex; justify-content: space-between; align-items: center; } .field-helper { font-size: 11px; color: var(--text-muted); } select, input[type="range"] { width: 100%; } select { padding: 8px 10px; border-radius: 999px; border: 1px solid rgba(148, 163, 184, 0.9); font-size: 13px; background: #ffffff; outline: none; transition: border-color var(--transition-fast), box-shadow var(--transition-fast); } select:focus { border-color: var(--uob-blue); box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.2); } input[type="range"] { -webkit-appearance: none; appearance: none; height: 6px; border-radius: 999px; background: #e5e7eb; outline: none; } input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--energy-orange); border: 2px solid #ffffff; box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.25); cursor: pointer; } input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--energy-orange); border: 2px solid #ffffff; box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.25); cursor: pointer; } .simulator-output { font-size: 13px; color: var(--text-muted); } .routine-preview { margin-top: 10px; border-radius: 14px; padding: 10px 12px; background: #f9fafb; border: 1px dashed rgba(148, 163, 184, 0.7); } .routine-preview-title { font-size: 12px; font-weight: 600; margin-bottom: 6px; color: var(--uob-blue); } .routine-preview-list { font-size: 12px; list-style: disc; padding-left: 18px; display: grid; gap: 2px; } .sdg-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 20px; align-items: stretch; } @media (max-width: 840px) { .sdg-grid { grid-template-columns: 1fr; } } .sdg-text { font-size: 14px; color: var(--text-muted); display: grid; gap: 10px; } .sdg-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; } .sdg-pill { font-size: 11px; padding: 5px 10px; border-radius: 999px; border: 1px solid rgba(148, 163, 184, 0.8); background: rgba(255, 255, 255, 0.9); cursor: pointer; transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast); } .sdg-pill.active { background: #e0f2fe; border-color: var(--uob-blue); transform: translateY(-1px); } .sdg-detail { font-size: 12px; color: var(--text-muted); margin-top: 8px; min-height: 32px; } .sdg-card { background: var(--card-bg); border-radius: var(--radius-lg); padding: 16px 16px 18px; box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08); border: 1px solid rgba(148, 163, 184, 0.35); font-size: 13px; color: var(--text-muted); } .sdg-campus { font-size: 12px; margin-top: 10px; color: var(--text-muted); } .testimonials { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; } @media (max-width: 840px) { .testimonials { grid-template-columns: 1fr; } } .testimonial-card { background: var(--card-bg); border-radius: var(--radius-lg); padding: 16px 16px 18px; border: 1px solid rgba(148, 163, 184, 0.4); box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08); position: relative; overflow: hidden; font-size: 13px; color: var(--text-muted); transition: transform var(--transition-fast), box-shadow var(--transition-fast); } .testimonial-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(15, 23, 42, 0.16); } .testimonial-quote { margin-bottom: 10px; } .testimonial-author { font-size: 12px; font-weight: 600; color: var(--uob-blue); } .testimonial-meta { font-size: 11px; color: var(--text-muted); } .cta { text-align: center; padding: 26px 18px 30px; border-radius: 26px; background: radial-gradient(circle at top, rgba(59, 178, 115, 0.16), rgba(0, 40, 85, 0.96)); color: #e5f4ff; box-shadow: var(--shadow-soft); position: relative; overflow: hidden; } .cta::before { content: ""; position: absolute; inset: -40%; background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.12) 0, transparent 55%), radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.1) 0, transparent 55%); opacity: 0.8; pointer-events: none; } .cta-inner { position: relative; z-index: 1; max-width: 520px; margin: 0 auto; } .cta-title { font-size: 22px; font-weight: 800; margin-bottom: 8px; } .cta-text { font-size: 13px; opacity: 0.9; margin-bottom: 16px; } .cta-actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; } .cta-meta { font-size: 11px; opacity: 0.8; } footer { margin-top: 32px; font-size: 11px; color: var(--text-muted); display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; } </style> </head> <body> <div class="page"> <header> <div class="logo"> <div class="logo-mark">U</div> <span>UoBalance</span> </div> <nav> <a href="#how">How it works</a> <a href="#simulator">Try it</a> <a href="#sdg">Impact</a> <a href="#stories">Stories</a> </nav> </header> <main> <!-- HERO --> <section class="hero"> <div> <div class="hero-kicker">For University of Birmingham students</div> <h1 class="hero-title"> Boost your energy.<br /> <span class="hero-highlight">Balance your student life.</span> </h1> <p class="hero-subtitle"> UoBalance creates personalised routines that fit your timetable—combining movement, nutrition and focus habits so you can study smarter, not harder. </p> <div class="hero-badges"> <div class="badge"> <span class="badge-dot"></span> Built around your lectures, societies & deadlines </div> <div class="badge"> SDG 3 – Good Health & Well‑Being </div> <div class="badge"> SDG 4 – Quality Education </div> </div> <div class="hero-actions"> <button class="btn-primary" id="hero-start"> Build my routine <span>→</span> </button> <button class="btn-ghost" id="hero-demo"> Try a quick demo </button> </div> <div class="hero-meta"> <strong>2 minutes</strong> to get started. No commitment, designed for real student schedules. </div> </div> <div class="hero-visual" aria-hidden="true"> <div class="hero-visual-inner"> <div class="hero-visual-header"> <div class="pill"> <span class="pill-dot"></span> Today’s balance snapshot </div> <span style="font-size:11px; opacity:0.85;">Sample routine · UoB student</span> </div> <div class="hero-visual-grid"> <div class="card"> <div class="card-title"> <span>Focus day · Exam revision</span> <span class="chip">Personalised</span> </div> <ul class="routine-list"> <li class="routine-item"> <span>08:00 · Light breakfast</span> <span class="routine-tag">Nutrition</span> </li> <li class="routine-item"> <span>10:30 · 15‑min campus walk</span> <span class="routine-tag">Movement</span> </li> <li class="routine-item"> <span>14:00 · Pomodoro study block</span> <span class="routine-tag">Focus</span> </li> <li class="routine-item"> <span>22:30 · Wind‑down routine</span> <span class="routine-tag">Sleep</span> </li> </ul> <div class="energy-meter"> Energy & focus balance <div class="energy-bar"> <div class="energy-fill" id="hero-energy-fill"></div> </div> </div> </div> <div class="hero-visual-side"> <div class="stat-card"> <div> <div class="stat-label">Average daily steps</div> <div class="tagline">With small movement breaks</div> </div> <div class="stat-value" id="stat-steps">+18%</div> </div> <div class="stat-card"> <div> <div class="stat-label">Evening screen time</div> <div class="tagline">After adding a sleep routine</div> </div> <div class="stat-value" id="stat-screen">‑25%</div> </div> <div class="stat-card"> <div> <div class="stat-label">Self‑rated focus</div> <div class="tagline">During revision weeks</div> </div> <div class="stat-value" id="stat-focus">↑ 7.8 / 10</div> </div> </div> </div> </div> </div> </section> <!-- HOW IT WORKS --> <section class="section" id="how"> <div class="section-header"> <h2 class="section-title">How UoBalance works</h2> <p class="section-subtitle"> In just three steps, UoBalance turns your timetable, habits and goals into a realistic routine you can actually follow. </p> </div> <div class="steps"> <article class="step-card"> <div class="step-index">Step 1</div> <div class="step-title">Add your timetable & constraints</div> <p class="step-text"> Import or quickly enter your lectures, labs, part‑time work and societies. UoBalance finds the gaps you can actually use. </p> <div class="step-meta"> <span class="step-icon">📅</span> <span>Works with busy and irregular weeks.</span> </div> </article> <article class="step-card"> <div class="step-index">Step 2</div> <div class="step-title">Answer a short habits questionnaire</div> <p class="step-text"> Share how you currently move, sleep and eat—no judgement. We use it to suggest small, realistic changes. </p> <div class="step-meta"> <span class="step-icon">🧠</span> <span>Focus on energy, not perfection.</span> </div> </article> <article class="step-card"> <div class="step-index">Step 3</div> <div class="step-title">Get your personalised routine</div> <p class="step-text"> Receive a daily and weekly plan that fits around your life at UoB, with clear actions you can tick off. </p> <div class="step-meta"> <span class="step-icon">✅</span> <span>Adapt it anytime as your term changes.</span> </div> </article> </div> </section> <!-- MINI SIMULATOR --> <section class="section" id="simulator"> <div class="section-header"> <h2 class="section-title">Try a quick balance preview</h2> <p class="section-subtitle"> Choose how you feel and what you want to improve—UoBalance will suggest a sample routine you might receive. </p> </div> <div class="simulator"> <div class="simulator-panel"> <div class="field"> <div class="field-label"> <span>How do you feel today?</span> <span id="energy-label" class="field-helper">Balanced</span> </div> <input type="range" id="energy-slider" min="1" max="5" value="3" /> </div> <div class="field"> <div class="field-label"> <span>Your main goal right now</span> </div> <select id="goal-select"> <option value="focus">Stay focused during long study days</option> <option value="sleep">Sleep better and feel rested</option> <option value="active">Be more active around campus</option> <option value="nutrition">Make smarter food choices</option> </select> </div> <div class="field"> <div class="field-label"> <span>Typical day at UoB</span> </div> <select id="day-select"> <option value="lectures">Back‑to‑back lectures</option> <option value="library">Long library revision day</option> <option value="mixed">Mix of classes, work & societies</option> </select> </div> <p class="simulator-output" id="simulator-summary"> You’ll get short, realistic actions that fit between your lectures and commitments. </p> </div> <div class="simulator-panel"> <div class="routine-preview"> <div class="routine-preview-title">Sample routine preview</div> <ul class="routine-preview-list" id="routine-preview-list"> <li>10‑minute walk between lectures to reset your focus.</li> <li>Simple, balanced lunch suggestion near campus.</li> <li>Evening wind‑down block to protect your sleep.</li> </ul> </div> </div> </div> </section> <!-- SDG & UOB CONTEXT --> <section class="section" id="sdg"> <div class="section-header"> <h2 class="section-title">Designed for UoB students, aligned with global goals</h2> <p class="section-subtitle"> UoBalance supports your personal well‑being and learning, while contributing to the UN Sustainable Development Goals. </p> </div> <div class="sdg-grid"> <div class="sdg-text"> <p> University life is intense: lectures, labs, societies, part‑time work, commuting, deadlines. UoBalance is built around the real rhythm of Birmingham students, not an idealised routine. </p> <p> By helping you stay active, eat well and protect your focus, UoBalance contributes to: </p> <div> <div class="sdg-badges"> <button class="sdg-pill active" data-sdg="3">SDG 3 – Good Health & Well‑Being</button> <button class="sdg-pill" data-sdg="4">SDG 4 – Quality Education</button> </div> <div class="sdg-detail" id="sdg-detail"> SDG 3: Encouraging movement, sleep hygiene and healthier food choices to support your physical and mental well‑being during your studies. </div> </div> </div> <div class="sdg-card"> <strong style="color:var(--uob-blue);">Rooted in the UoB experience</strong> <p style="margin-top:6px;"> UoBalance is tailored to the Edgbaston campus rhythm: long walks between buildings, late‑afternoon seminars, society meetings in the evening and exam seasons in the library. </p> <p class="sdg-campus"> Think of it as a gentle guide that fits around your modules, not another task on your to‑do list. </p> </div> </div> </section> <!-- TESTIMONIALS --> <section class="section" id="stories"> <div class="section-header"> <h2 class="section-title">What students could say</h2> <p class="section-subtitle"> Early testers describe UoBalance as “the first routine that actually respects my timetable”. </p> </div> <div class="testimonials"> <article class="testimonial-card"> <p class="testimonial-quote"> “During exam season I always felt either wired or exhausted. With UoBalance, I finally have small breaks and movement built into my day.” </p> <div class="testimonial-author">Second‑year Psychology student</div> <div class="testimonial-meta">Library‑heavy timetable · Focus & sleep goals</div> </article> <article class="testimonial-card"> <p class="testimonial-quote"> “I work part‑time and do societies in the evening. UoBalance helped me find realistic windows for movement and better meals.” </p> <div class="testimonial-author">Third‑year Engineering student</div> <div class="testimonial-meta">Mixed schedule · Energy & nutrition goals</div> </article> <article class="testimonial-card"> <p class="testimonial-quote"> “It doesn’t tell me to be perfect. It suggests tiny changes that actually fit between my lectures.” </p> <div class="testimonial-author">First‑year Law student</div> <div class="testimonial-meta">Back‑to‑back lectures · Stress & focus goals</div> </article> </div> </section> <!-- CTA --> <section class="cta"> <div class="cta-inner"> <h2 class="cta-title">Ready to balance your student life?</h2> <p class="cta-text"> Start with a short questionnaire and your timetable. In a couple of minutes, you’ll see a routine that feels like it was built just for you. </p> <div class="cta-actions"> <button class="btn-primary" id="cta-start"> Start now </button> <button class="btn-ghost" id="cta-demo"> Try the demo first </button> </div> <div class="cta-meta"> No payment required · Built for University of Birmingham students · You stay in control of your data. </div> </div> </section> </main> <footer> <span>© UoBalance – Student well‑being for University of Birmingham</span> <span>Aligned with SDG 3 & SDG 4</span> </footer> </div> <script> // HERO subtle animation const energyFill = document.getElementById("hero-energy-fill"); let energyDirection = 1; setInterval(() => { const current = parseFloat(energyFill.style.width || "60"); let next = current + energyDirection * 2; if (next > 90) { next = 90; energyDirection = -1; } else if (next < 55) { next = 55; energyDirection = 1; } energyFill.style.width = next + "%"; }, 900); // Smooth scroll from hero buttons to simulator const heroStart = document.getElementById("hero-start"); const heroDemo = document.getElementById("hero-demo"); const ctaStart = document.getElementById("cta-start"); const ctaDemo = document.getElementById("cta-demo"); const simulatorSection = document.getElementById("simulator"); function scrollToSimulator() { simulatorSection.scrollIntoView({ behavior: "smooth", block: "start" }); } heroStart.addEventListener("click", scrollToSimulator); heroDemo.addEventListener("click", scrollToSimulator); ctaStart.addEventListener("click", scrollToSimulator); ctaDemo.addEventListener("click", scrollToSimulator); // Mini simulator logic const energySlider = document.getElementById("energy-slider"); const energyLabel = document.getElementById("energy-label"); const goalSelect = document.getElementById("goal-select"); const daySelect = document.getElementById("day-select"); const routineList = document.getElementById("routine-preview-list"); const simulatorSummary = document.getElementById("simulator-summary"); function getEnergyLabel(value) { const v = Number(value); if (v <= 1) return "Exhausted"; if (v === 2) return "Tired"; if (v === 3) return "Balanced"; if (v === 4) return "Energised"; return "Supercharged"; } function updateSimulator() { const energy = Number(energySlider.value); const goal = goalSelect.value; const day = daySelect.value; energyLabel.textContent = getEnergyLabel(energy); const items = []; // Base suggestion depending on day type if (day === "lectures") { items.push("5–10 minute movement breaks between lectures to reset your focus."); items.push("Quick, balanced lunch option you can grab near campus."); } else if (day === "library") { items.push("Pomodoro‑style study blocks with short active breaks."); items.push("Hydration and snack reminders to keep your energy stable."); } else { items.push("Short movement blocks that fit between classes, work and societies."); items.push("Simple planning moment to align your day with your energy."); } // Goal‑specific suggestions if (goal === "focus") { items.push("Protected deep‑focus block when your energy is naturally higher."); items.push("Micro‑ritual before studying to help your brain switch on."); } else if (goal === "sleep") { items.push("Screen‑light reduction and wind‑down routine 60–90 minutes before bed."); items.push("Gentle evening reflection to close the day and reduce overthinking."); } else if (goal === "active") { items.push("Campus walking route suggestion that fits your timetable."); items.push("Light strength or mobility session you can do in your room."); } else if (goal === "nutrition") { items.push("Simple meal ideas that match your schedule and budget."); items.push("Timing suggestions so you don’t hit long study blocks on an empty stomach."); } // Energy‑based tweak if (energy <= 2) { items.unshift("Extra‑gentle day: focus on recovery, hydration and one small win."); } else if (energy >= 5) { items.push("Use your high‑energy window for your most demanding task."); } routineList.innerHTML = ""; items.slice(0, 5).forEach((text) => { const li = document.createElement("li"); li.textContent = text; routineList.appendChild(li); }); simulatorSummary.textContent = "This is a sample of the kind of routine UoBalance could generate for your current energy, goals and day type."; } energySlider.addEventListener("input", updateSimulator); goalSelect.addEventListener("change", updateSimulator); daySelect.addEventListener("change", updateSimulator); updateSimulator(); // SDG pills interaction const sdgPills = document.querySelectorAll(".sdg-pill"); const sdgDetail = document.getElementById("sdg-detail"); const sdgTexts = { 3: "SDG 3: Encouraging movement, sleep hygiene and healthier food choices to support your physical and mental well‑being during your studies.", 4: "SDG 4: Helping you protect your focus, manage your time and build sustainable study habits that support your learning outcomes." }; sdgPills.forEach((pill) => { pill.addEventListener("click", () => { sdgPills.forEach((p) => p.classList.remove("active")); pill.classList.add("active"); const id = pill.getAttribute("data-sdg"); sdgDetail.textContent = sdgTexts[id]; }); }); </script> </body> </html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>UoBalance – Santé étudiante</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f8;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2b8a78, #5ec2a6);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        section {
+            padding: 50px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2b8a78;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #2b8a78;
+        }
+
+        .card p {
+            font-size: 0.95em;
+        }
+
+        .simulator {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            max-width: 500px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background: #2b8a78;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #256f62;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>UoBalance</h1>
+    <p>L’application qui aide les étudiants à équilibrer sport, nutrition et bien-être mental.</p>
+</header>
+
+<section>
+    <h2>Pourquoi UoBalance ?</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>🏃 Sport</h3>
+            <p>Des recommandations d’activité physique adaptées à ton emploi du temps universitaire.</p>
+        </div>
+
+        <div class="card">
+            <h3>🥗 Nutrition</h3>
+            <p>Des conseils simples et accessibles pour manger sainement avec un budget étudiant.</p>
+        </div>
+
+        <div class="card">
+            <h3>🧠 Bien-être</h3>
+            <p>Gestion du stress, sommeil et équilibre mental pendant les périodes d’examens.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Simulateur de charge étudiante</h2>
+
+    <div class="simulator">
+        <label>Heures de cours par semaine</label>
+        <input type="number" id="study" placeholder="Ex : 20">
+
+        <label>Heures de sport par semaine</label>
+        <input type="number" id="sport" placeholder="Ex : 4">
+
+        <label>Niveau de stress</label>
+        <select id="stress">
+            <option value="low">Faible</option>
+            <option value="medium">Moyen</option>
+            <option value="high">Élevé</option>
+        </select>
+
+        <button onclick="calculate()">Analyser mon équilibre</button>
+
+        <div id="result"></div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 – Projet étudiant | UoBalance</p>
+</footer>
+
+<script>
+    function calculate() {
+        const study = document.getElementById("study").value;
+        const sport = document.getElementById("sport").value;
+        const stress = document.getElementById("stress").value;
+
+        let message = "";
+
+        if (study > 25 && sport < 2 && stress === "high") {
+            message = "⚠️ Risque de déséquilibre élevé. UoBalance recommande plus de repos et d’activité physique.";
+        } else if (sport >= 3 && stress !== "high") {
+            message = "✅ Bon équilibre ! Continue à prendre soin de toi.";
+        } else {
+            message = "ℹ️ Équilibre moyen. Quelques ajustements pourraient améliorer ton bien-être.";
+        }
+
+        document.getElementById("result").innerText = message;
+    }
+</script>
+
+</body>
+</html>
